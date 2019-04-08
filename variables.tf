@@ -5,12 +5,12 @@ variable "tenancy_ocid" {}
 variable "region" {}
 
 variable "compartment_ocid" {}
-# variable "ssh_public_key" {}
-# variable "ssh_private_key" {}
+variable "ssh_public_key" {}
+variable "ssh_private_key" {}
 
 # Choose an Availability Domain
 variable "AD" {
-    default = "1"
+    default = "2"
 }
 
 variable "InstanceShape" {
@@ -32,6 +32,6 @@ variable "InstanceImageOCID" {
 #     default = "50" // size in GBs
 # }
 
-# variable "BootStrapFile" {
-#     default = "./userdata/bootstrap"
-# }
+variable "BootStrapFile" {
+    default = "./userdata/bootstrap"
+}

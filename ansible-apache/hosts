@@ -1,2 +1,0 @@
-[webservers]
-ws01 ansible_host=132.145.171.120 ansible_user=root
