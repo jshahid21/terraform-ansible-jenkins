@@ -3,6 +3,13 @@ data "oci_identity_availability_domains" "ADs" {
     compartment_id = "${var.tenancy_ocid}"
 }
 
+# data "oci_core_security_lists" "tajSL" {
+#     #Required
+#     compartment_id = "${var.compartment_ocid}"
+#     vcn_id = "${oci_core_virtual_network.tajVCN.id}"
+# }
+
+
 # # Gets a list of vNIC attachments on the instance
 # data "oci_core_vnic_attachments" "InstanceVnics" {
 #     compartment_id = "${var.compartment_ocid}"

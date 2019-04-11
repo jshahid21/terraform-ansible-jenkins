@@ -10,7 +10,7 @@ resource "oci_core_subnet" "tajSN" {
   cidr_block = "10.1.20.0/24"
   display_name = "tajSN"
   dns_label = "tajSN"
-  security_list_ids = ["${oci_core_virtual_network.tajVCN.default_security_list_id}"]
+  security_list_ids = ["${oci_core_security_list.tajSL.id}"]
   compartment_id = "${var.compartment_ocid}"
   vcn_id = "${oci_core_virtual_network.tajVCN.id}"
   route_table_id = "${oci_core_route_table.tajRT.id}"
@@ -28,7 +28,73 @@ resource "oci_core_route_table" "tajRT" {
   vcn_id = "${oci_core_virtual_network.tajVCN.id}"
   display_name = "tajRT"
   route_rules {
-    cidr_block = "0.0.0.0/0"
+    destination = "0.0.0.0/0"
     network_entity_id = "${oci_core_internet_gateway.tajIG.id}"
+  }
+}
+
+resource "oci_core_security_list" "tajSL" {
+  compartment_id = "${var.compartment_ocid}"
+  vcn_id = "${oci_core_virtual_network.tajVCN.id}"
+  display_name = "tajSL"
+  egress_security_rules {
+    destination = "0.0.0.0/0"
+    protocol    = "all"
+    stateless   = false
+  }
+
+  // allow inbound ssh traffic
+  ingress_security_rules {
+    protocol  = "6"         // tcp
+    source    = "0.0.0.0/0"
+    stateless = false
+
+    tcp_options {
+      "min" = 22
+      "max" = 22
+    }
+  }
+
+  // allow inbound icmp traffic of a specific type
+  ingress_security_rules {
+    protocol  = 1
+    source    = "0.0.0.0/0"
+    stateless = false
+
+    icmp_options {
+      "type" = 3
+      "code" = 4
+    }
+  }
+
+  ingress_security_rules {
+    protocol  = 1
+    source    = "10.0.0.0/16"
+    stateless = false
+
+    icmp_options {
+      "type" = 3
+      "code" = 4
+    }
+  }
+  ingress_security_rules {
+    protocol  = 6
+    source    = "0.0.0.0/0"
+    stateless = false
+
+    tcp_options {
+      "min" = 80
+      "max" = 80
+    }
+  }
+  ingress_security_rules {
+    protocol  = 6
+    source    = "0.0.0.0/0"
+    stateless = false
+
+    tcp_options {
+      "min" = 8888
+      "max" = 8888
+    }
   }
 }
