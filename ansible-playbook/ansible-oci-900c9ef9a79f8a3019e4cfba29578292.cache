@@ -1,0 +1,196 @@
+{
+  "IaaS-TerraformAnsibleJenkinsDemo": {
+    "hosts": [
+      "132.145.171.135",
+      "129.213.91.50"
+    ]
+  },
+  "VM.Standard2.1": {
+    "hosts": [
+      "129.213.91.50"
+    ]
+  },
+  "VM.Standard2.2": {
+    "hosts": [
+      "132.145.171.135"
+    ]
+  },
+  "WSQk_US-ASHBURN-AD-1": {
+    "children": [
+      "ocid1.subnet.oc1.iad.aaaaaaaabuqiy6h5epgscck5qefjg5cipynedwti6rmm4ki3ibppt2ponswa"
+    ],
+    "hosts": [
+      "132.145.171.135"
+    ]
+  },
+  "WSQk_US-ASHBURN-AD-2": {
+    "children": [
+      "ocid1.subnet.oc1.iad.aaaaaaaadlpisaghp42o5qs3lc7zepmx3bgag7iow3tms3cxflkmtzakuy6q"
+    ],
+    "hosts": [
+      "129.213.91.50"
+    ]
+  },
+  "_meta": {
+    "hostvars": {
+      "129.213.91.50": {
+        "agent_config": {
+          "is_monitoring_disabled": false
+        },
+        "availability_domain": "WSQk:US-ASHBURN-AD-2",
+        "compartment_id": "ocid1.compartment.oc1..aaaaaaaaseo4aolyjd5ndfifkexmsu3bfweiko2to74lbru6x4djkmzz2d5q",
+        "defined_tags": {},
+        "display_name": "tajVM",
+        "extended_metadata": {},
+        "fault_domain": "FAULT-DOMAIN-1",
+        "freeform_tags": {},
+        "id": "ocid1.instance.oc1.iad.abuwcljrgp47lc5pso7d7gurclkrxlid6ckzzjybvhg4ibqlulenxgasbaha",
+        "image_id": "ocid1.image.oc1.iad.aaaaaaaavzrrzlq2zvj5fd5c27jed7fwou5aqkezxbtmys4aolls54zg7f7q",
+        "ipxe_script": null,
+        "launch_mode": "NATIVE",
+        "launch_options": {
+          "boot_volume_type": "PARAVIRTUALIZED",
+          "firmware": "UEFI_64",
+          "is_consistent_volume_naming_enabled": true,
+          "is_pv_encryption_in_transit_enabled": true,
+          "network_type": "VFIO",
+          "remote_data_volume_type": "PARAVIRTUALIZED"
+        },
+        "lifecycle_state": "RUNNING",
+        "metadata": {
+          "ssh_authorized_keys": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQC4cDLxyckU2hPenR56aaTIy0lthVTKbrm4LImhNKQKIZN3JmaWfTd6RmzJk2XuBnxZH0VLU2rlI3Et++tvD/FMrBxn1HQWfCZjfM1gTsZJKnFc9Ows14H7u/ux+QRZDT57077CUcYna0iKTh7yEeH4f+ekrdQP4z7Ui82b8iFO0p0khvvlwzTTMP5Vqj2Q5XN5jVGYzYi2LjwLYZVVUgv5SkVRYWzV9msFlO4+mVUH096rCWtiGV0vfMEfueie48YHAIObb1UERgUbhHoLaKjuwL3InFZCQc4Xtcx9pqx5znTgc5k6ZjmuHS5jzLxV5qdid0zXERUwWLAET23X0MuX jushahid@Junaids-MacBook-Pro.local",
+          "user_data": "IyAjIS9iaW4vYmFzaA0KIyB0b3VjaCAvcm9vdC9zdGFydGluZ19ydW4NCiMgeXVtIHVwZGF0ZSAteQ0KIyB0b3VjaCAvcm9vdC9ydW5fY29tcGxldGUNCg=="
+        },
+        "region": "iad",
+        "shape": "VM.Standard2.1",
+        "source_details": {
+          "boot_volume_size_in_gbs": null,
+          "image_id": "ocid1.image.oc1.iad.aaaaaaaavzrrzlq2zvj5fd5c27jed7fwou5aqkezxbtmys4aolls54zg7f7q",
+          "kms_key_id": null,
+          "source_type": "image"
+        },
+        "time_created": "2019-04-10T16:41:30.553000+00:00",
+        "time_maintenance_reboot_due": null
+      },
+      "132.145.171.135": {
+        "agent_config": {
+          "is_monitoring_disabled": false
+        },
+        "availability_domain": "WSQk:US-ASHBURN-AD-1",
+        "compartment_id": "ocid1.compartment.oc1..aaaaaaaaseo4aolyjd5ndfifkexmsu3bfweiko2to74lbru6x4djkmzz2d5q",
+        "defined_tags": {},
+        "display_name": "WebAppInstance_KN",
+        "extended_metadata": {},
+        "fault_domain": "FAULT-DOMAIN-3",
+        "freeform_tags": {
+          "Ansible": "KNVM"
+        },
+        "id": "ocid1.instance.oc1.iad.abuwcljtphk7sj7cza42dpv43iq4n5uxnpbovrhcngxld7hrgow4uf63yaca",
+        "image_id": "ocid1.image.oc1.iad.aaaaaaaageeenzyuxgia726xur4ztaoxbxyjlxogdhreu3ngfj2gji3bayda",
+        "ipxe_script": null,
+        "launch_mode": "NATIVE",
+        "launch_options": {
+          "boot_volume_type": "PARAVIRTUALIZED",
+          "firmware": "UEFI_64",
+          "is_consistent_volume_naming_enabled": false,
+          "is_pv_encryption_in_transit_enabled": true,
+          "network_type": "VFIO",
+          "remote_data_volume_type": "PARAVIRTUALIZED"
+        },
+        "lifecycle_state": "RUNNING",
+        "metadata": {
+          "ssh_authorized_keys": "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQDGP56kfnzmdyLahAjF3W2mQhxA24Si7E5So8ZvSL5tTdNRiowKhv3wOUIwKW8YsNBFi/S7UZyrpIEC27jK+oFfZlysbOWY4ovZsIQ7GZxTjNrmIq38GvU+qeDY3X2Hlb3vFPvRVHJlGVOO06MQCH4xWADTxrf7DE0OXozz2U8wOt6x6OyrFy6sYrxnBDCaLy5i4z/2gKx2yJXYLb8C2LT2NVwf1mgaxjWVPV6Z6TLBOVFhmzaRnQkl7N1QMQWSdW2NI2kqC0CV0mm3q0ZkiDo7J6njYzMdc5qNZdiSy4ElHOp78f9SfB85gGpnXPjJBYpz/ywUjgjYKvQ9TyggvQdB"
+        },
+        "region": "iad",
+        "shape": "VM.Standard2.2",
+        "source_details": {
+          "boot_volume_size_in_gbs": null,
+          "image_id": "ocid1.image.oc1.iad.aaaaaaaageeenzyuxgia726xur4ztaoxbxyjlxogdhreu3ngfj2gji3bayda",
+          "kms_key_id": null,
+          "source_type": "image"
+        },
+        "time_created": "2019-04-04T19:12:14.952000+00:00",
+        "time_maintenance_reboot_due": null
+      }
+    }
+  },
+  "a": {
+    "hosts": [
+      "132.145.171.135",
+      "129.213.91.50"
+    ]
+  },
+  "all": {
+    "hosts": [],
+    "vars": {}
+  },
+  "l": {
+    "hosts": [
+      "132.145.171.135",
+      "129.213.91.50"
+    ]
+  },
+  "ocid1.image.oc1.iad.aaaaaaaageeenzyuxgia726xur4ztaoxbxyjlxogdhreu3ngfj2gji3bayda": {
+    "hosts": [
+      "132.145.171.135"
+    ]
+  },
+  "ocid1.image.oc1.iad.aaaaaaaavzrrzlq2zvj5fd5c27jed7fwou5aqkezxbtmys4aolls54zg7f7q": {
+    "hosts": [
+      "129.213.91.50"
+    ]
+  },
+  "ocid1.securitylist.oc1.iad.aaaaaaaai46r65gg3j3n2iict4iptjxddjgncbwk4x3f7i6bp5poomigotnq": {
+    "hosts": [
+      "132.145.171.135"
+    ]
+  },
+  "ocid1.securitylist.oc1.iad.aaaaaaaan7n3noub7sy2gkxpdx3k7nz4qmsjug3hewoywagohmhfiuefkvaq": {
+    "hosts": [
+      "129.213.91.50"
+    ]
+  },
+  "ocid1.subnet.oc1.iad.aaaaaaaabuqiy6h5epgscck5qefjg5cipynedwti6rmm4ki3ibppt2ponswa": {
+    "hosts": [
+      "132.145.171.135"
+    ]
+  },
+  "ocid1.subnet.oc1.iad.aaaaaaaadlpisaghp42o5qs3lc7zepmx3bgag7iow3tms3cxflkmtzakuy6q": {
+    "hosts": [
+      "129.213.91.50"
+    ]
+  },
+  "ocid1.vcn.oc1.iad.aaaaaaaa3e6ahbz5dr77oyt55tc3gaeuwzc4bbhmg7jsr6jhsvyrmumg5u2q": {
+    "children": [
+      "ocid1.subnet.oc1.iad.aaaaaaaabuqiy6h5epgscck5qefjg5cipynedwti6rmm4ki3ibppt2ponswa"
+    ],
+    "hosts": [
+      "132.145.171.135"
+    ]
+  },
+  "ocid1.vcn.oc1.iad.aaaaaaaaimrlslpf2vfy6dog2bq453lx3b5t5lg2h3th2ojhmmjhur6flhaq": {
+    "children": [
+      "ocid1.subnet.oc1.iad.aaaaaaaadlpisaghp42o5qs3lc7zepmx3bgag7iow3tms3cxflkmtzakuy6q"
+    ],
+    "hosts": [
+      "129.213.91.50"
+    ]
+  },
+  "region_iad": {
+    "children": [
+      "WSQk_US-ASHBURN-AD-1",
+      "ocid1.vcn.oc1.iad.aaaaaaaa3e6ahbz5dr77oyt55tc3gaeuwzc4bbhmg7jsr6jhsvyrmumg5u2q",
+      "WSQk_US-ASHBURN-AD-2",
+      "ocid1.vcn.oc1.iad.aaaaaaaaimrlslpf2vfy6dog2bq453lx3b5t5lg2h3th2ojhmmjhur6flhaq"
+    ],
+    "hosts": [
+      "132.145.171.135",
+      "129.213.91.50"
+    ]
+  },
+  "tag_Ansible=KNVM": {
+    "hosts": [
+      "132.145.171.135"
+    ]
+  }
+}
