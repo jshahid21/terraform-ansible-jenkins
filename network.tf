@@ -93,6 +93,16 @@ resource "oci_core_security_list" "tajSL" {
     stateless = false
 
     tcp_options {
+      "min" = 443
+      "max" = 443
+    }
+  }
+  ingress_security_rules {
+    protocol  = 6
+    source    = "0.0.0.0/0"
+    stateless = false
+
+    tcp_options {
       "min" = 8888
       "max" = 8888
     }
