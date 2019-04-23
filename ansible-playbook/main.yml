@@ -42,6 +42,7 @@
         repo: https://github.com/jshahid21/ansible-docker-app.git
         dest: /home/opc/docker
         clone: yes
+      become: yes
 
     # - name: Synchronization using rsync protocol (push)
     #   synchronize:
