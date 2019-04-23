@@ -37,6 +37,13 @@ pipeline {
       }
     }
 
-  }
-
+    stage('Ansible Playbook') {
+      steps {
+        ansiColor('xterm') {
+            ansiblePlaybook(
+                playbook: '/var/lib/jenkins/workspace/tajJS/ansible-playbook/main.yml',
+                inventory: '/var/lib/jenkins/workspace/tajJS/ansible-playbook/hosts',
+                colorized: true)
+        }
+      }
 }
