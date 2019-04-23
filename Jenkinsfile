@@ -39,12 +39,7 @@ pipeline {
 
     stage('Ansible Playbook') {
       steps {
-        ansiColor('xterm') {
-            ansiblePlaybook(
-                playbook: '/var/lib/jenkins/workspace/tajJS/ansible-playbook/main.yml',
-                inventory: '/var/lib/jenkins/workspace/tajJS/ansible-playbook/hosts',
-                colorized: true)
-        }
+          sh 'sudo ansible-playbook -i /var/lib/jenkins/workspace/tajJS/ansible-playbook/hosts --private-key=/var/lib/jenkins/.ocijs/id_rsa /var/lib/jenkins/workspace/tajJS/ansible-playbook/main.yml'
       }
     }
   }
