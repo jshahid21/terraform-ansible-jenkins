@@ -34,7 +34,6 @@
         state: started
         enabled: yes
       become: yes
-      become_user: sudo
 
     - name: Install Git
       yum: name=git
