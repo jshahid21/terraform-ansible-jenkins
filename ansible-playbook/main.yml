@@ -51,6 +51,7 @@
 
     - name: build the image
       command: docker build -t built-by-ansible:ex1 /home/opc/docker
+      become: yes
 
     - name: run the site in a docker container
       docker_container:
@@ -59,3 +60,4 @@
         state: started
         detach: yes
         published_ports: 8888:5000
+      become: yes
