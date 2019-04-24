@@ -73,6 +73,5 @@
         image: "jshahid21/db-apex-dev-image"
         state: started
         detach: yes
-        devices: "/dev/shm"
         published_ports: 2222:22, 8080:8080, 1521:1521
       become: yes
