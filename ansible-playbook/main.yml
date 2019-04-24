@@ -65,6 +65,7 @@
     - name: pull an image
       docker_image:
         name: jshahid21/db-apex-dev-image
+      become: yes
 
     - name: run the site in a docker container
       docker_container:
