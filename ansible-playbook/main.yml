@@ -74,6 +74,6 @@
         state: started
         detach: yes
         devices: "/dev/shm"
-        tmpfs: "/dev/shm:rw,nosuid,nodev,exec,size=2g"
+        tmpfs: "/dev/shm:rw,nosuid,nodev,exec"
         published_ports: 2222:22, 8080:8080, 1521:1521
       become: yes
