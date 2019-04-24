@@ -78,5 +78,5 @@
           - /dev/shm
         tmpfs:
           - /dev/shm:rw,nosuid,nodev,size=2g
-        published_ports: 2222:22,8080:8080,1521:1521
+        #published_ports: 2222:22,8080:8080,1521:1521
       become: yes
