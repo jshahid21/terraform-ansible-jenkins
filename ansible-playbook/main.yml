@@ -67,16 +67,16 @@
         name: jshahid21/db-apex-dev-image
       become: yes
 
-    - name: run the site in a docker container
-      docker_container:
-        name: db-apex-dev-image
-        image: "jshahid21/db-apex-dev-image"
-        state: started
-        detach: yes
-        privileged: yes
-        devices:
-          - /dev/shm
-        tmpfs:
-          - /dev/shm:rw,nosuid,nodev,size=2g
-        #published_ports: 2222:22,8080:8080,1521:1521
-      become: yes
+    # - name: run the site in a docker container
+    #   docker_container:
+    #     name: db-apex-dev-image
+    #     image: "jshahid21/db-apex-dev-image"
+    #     state: started
+    #     detach: yes
+    #     privileged: yes
+    #     devices:
+    #       - /dev/shm
+    #     tmpfs:
+    #       - /dev/shm:rw,nosuid,nodev,size=2g
+    #     published_ports: 2222:22,8080:8080,1521:1521
+    #   become: yes
