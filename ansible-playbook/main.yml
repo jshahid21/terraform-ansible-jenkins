@@ -35,29 +35,44 @@
         enabled: yes
       become: yes
 
-    - name: Install Git
-      yum: name=git
-    - name: Clone docker app github repo
-      git:
-        repo: https://github.com/jshahid21/ansible-docker-app.git
-        dest: /home/opc/docker
-        clone: yes
-      become: yes
+    # - name: Install Git
+    #   yum: name=git
+    # - name: Clone docker app github repo
+    #   git:
+    #     repo: https://github.com/jshahid21/ansible-docker-app.git
+    #     dest: /home/opc/docker
+    #     clone: yes
+    #   become: yes
+    #
+    # # - name: Synchronization using rsync protocol (push)
+    # #   synchronize:
+    # #     src: docker
+    # #     dest: /home/opc/
+    #
+    # - name: build the image
+    #   command: docker build -t built-by-ansible:ex1 /home/opc/docker
+    #   become: yes
+    #
+    # - name: run the site in a docker container
+    #   docker_container:
+    #     name: site1
+    #     image: "built-by-ansible:ex1"
+    #     state: started
+    #     detach: yes
+    #     published_ports: 8888:5000
+    #   become: yes
 
-    # - name: Synchronization using rsync protocol (push)
-    #   synchronize:
-    #     src: docker
-    #     dest: /home/opc/
-
-    - name: build the image
-      command: docker build -t built-by-ansible:ex1 /home/opc/docker
-      become: yes
+    - name: pull an image
+      docker_image:
+        name: jshahid21/db-apex-dev-image
 
     - name: run the site in a docker container
       docker_container:
-        name: site1
-        image: "built-by-ansible:ex1"
+        name: db-apex-dev-image
+        image: "jshahid21/db-apex-dev-image"
         state: started
         detach: yes
-        published_ports: 8888:5000
+        devices: "/dev/shm"
+        tmpsfs: "/dev/shm:rw,nosuid,nodev,exec,size=2g"
+        published_ports: 2222:22, 8080:8080, 1521:1521
       become: yes
