@@ -2,10 +2,6 @@ pipeline {
 
   agent any
 
-#  environment {
-#    SVC_ACCOUNT_KEY = credentials('04cf1f61-f1d1-4e15-ab53-874d1a340aeb')
-#  }
-
   stages {
 
     stage('Checkout') {
