@@ -1,42 +1,42 @@
 resource "oci_core_virtual_network" "tajVCN" {
-  cidr_block = "10.1.0.0/16"
-  compartment_id = "${var.compartment_ocid}"
-  display_name = "APEXvcn"
-  dns_label = "tajVCN"
+  cidr_block     = "10.1.0.0/16"
+  compartment_id = var.compartment_ocid
+  display_name   = "APEXvcn"
+  dns_label      = "tajVCN"
 }
 
 resource "oci_core_subnet" "tajSN" {
-  availability_domain = "${lookup(data.oci_identity_availability_domains.ADs.availability_domains[var.AD - 1],"name")}"
-  cidr_block = "10.1.20.0/24"
-  display_name = "tajSN"
-  dns_label = "APEXsn"
-  security_list_ids = ["${oci_core_security_list.tajSL.id}"]
-  compartment_id = "${var.compartment_ocid}"
-  vcn_id = "${oci_core_virtual_network.tajVCN.id}"
-  route_table_id = "${oci_core_route_table.tajRT.id}"
-  dhcp_options_id = "${oci_core_virtual_network.tajVCN.default_dhcp_options_id}"
+  availability_domain = data.oci_identity_availability_domains.ADs.availability_domains[var.AD - 1]["name"]
+  cidr_block          = "10.1.20.0/24"
+  display_name        = "tajSN"
+  dns_label           = "APEXsn"
+  security_list_ids   = [oci_core_security_list.tajSL.id]
+  compartment_id      = var.compartment_ocid
+  vcn_id              = oci_core_virtual_network.tajVCN.id
+  route_table_id      = oci_core_route_table.tajRT.id
+  dhcp_options_id     = oci_core_virtual_network.tajVCN.default_dhcp_options_id
 }
 
 resource "oci_core_internet_gateway" "tajIG" {
-  compartment_id = "${var.compartment_ocid}"
-  display_name = "APEXig"
-  vcn_id = "${oci_core_virtual_network.tajVCN.id}"
+  compartment_id = var.compartment_ocid
+  display_name   = "APEXig"
+  vcn_id         = oci_core_virtual_network.tajVCN.id
 }
 
 resource "oci_core_route_table" "tajRT" {
-  compartment_id = "${var.compartment_ocid}"
-  vcn_id = "${oci_core_virtual_network.tajVCN.id}"
-  display_name = "APEXrt"
+  compartment_id = var.compartment_ocid
+  vcn_id         = oci_core_virtual_network.tajVCN.id
+  display_name   = "APEXrt"
   route_rules {
-    destination = "0.0.0.0/0"
-    network_entity_id = "${oci_core_internet_gateway.tajIG.id}"
+    destination       = "0.0.0.0/0"
+    network_entity_id = oci_core_internet_gateway.tajIG.id
   }
 }
 
 resource "oci_core_security_list" "tajSL" {
-  compartment_id = "${var.compartment_ocid}"
-  vcn_id = "${oci_core_virtual_network.tajVCN.id}"
-  display_name = "APEXsl"
+  compartment_id = var.compartment_ocid
+  vcn_id         = oci_core_virtual_network.tajVCN.id
+  display_name   = "APEXsl"
   egress_security_rules {
     destination = "0.0.0.0/0"
     protocol    = "all"
@@ -45,13 +45,13 @@ resource "oci_core_security_list" "tajSL" {
 
   // allow inbound ssh traffic
   ingress_security_rules {
-    protocol  = "6"         // tcp
+    protocol  = "6" // tcp
     source    = "0.0.0.0/0"
     stateless = false
 
     tcp_options {
-      "min" = 22
-      "max" = 22
+      min = 22
+      max = 22
     }
   }
 
@@ -62,8 +62,8 @@ resource "oci_core_security_list" "tajSL" {
     stateless = false
 
     icmp_options {
-      "type" = 3
-      "code" = 4
+      type = 3
+      code = 4
     }
   }
 
@@ -73,8 +73,8 @@ resource "oci_core_security_list" "tajSL" {
     stateless = false
 
     icmp_options {
-      "type" = 3
-      "code" = 4
+      type = 3
+      code = 4
     }
   }
   ingress_security_rules {
@@ -83,8 +83,8 @@ resource "oci_core_security_list" "tajSL" {
     stateless = false
 
     tcp_options {
-      "min" = 80
-      "max" = 80
+      min = 80
+      max = 80
     }
   }
   ingress_security_rules {
@@ -93,8 +93,8 @@ resource "oci_core_security_list" "tajSL" {
     stateless = false
 
     tcp_options {
-      "min" = 8888
-      "max" = 8888
+      min = 8888
+      max = 8888
     }
   }
   ingress_security_rules {
@@ -103,8 +103,8 @@ resource "oci_core_security_list" "tajSL" {
     stateless = false
 
     tcp_options {
-      "min" = 8080
-      "max" = 8080
+      min = 8080
+      max = 8080
     }
   }
   ingress_security_rules {
@@ -113,8 +113,9 @@ resource "oci_core_security_list" "tajSL" {
     stateless = false
 
     tcp_options {
-      "min" = 2222
-      "max" = 2222
+      min = 2222
+      max = 2222
     }
   }
 }
+

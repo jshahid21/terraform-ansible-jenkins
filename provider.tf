@@ -1,8 +1,9 @@
 provider "oci" {
-  tenancy_ocid = "ocid1.tenancy.oc1..aaaaaaaa7l6wfqydzz6otbjnhrloxf4tezittufwjlwbaoxvajvkr6hyxmba"
-  user_ocid = "ocid1.user.oc1..aaaaaaaaw4qarxn6kse22u3vqxrz36h3c6cet337lspz4rjozuejunjpg3fq"
-  fingerprint = "5c:97:a9:3d:83:c1:38:a0:9e:21:aa:91:76:da:10:7f"
+  version          = ">= 3.27.0"
+  tenancy_ocid     = "ocid1.tenancy.oc1..aaaaaaaa7l6wfqydzz6otbjnhrloxf4tezittufwjlwbaoxvajvkr6hyxmba"
+  user_ocid        = "ocid1.user.oc1..aaaaaaaaw4qarxn6kse22u3vqxrz36h3c6cet337lspz4rjozuejunjpg3fq"
+  fingerprint      = "5c:97:a9:3d:83:c1:38:a0:9e:21:aa:91:76:da:10:7f"
   private_key_path = "/Users/jushahid/.oci/oci_api_key.pem"
-  region = "uk-london-1"
-  compartment = "ocid1.compartment.oc1..aaaaaaaadr3axkhy67zelam3e4mv7mnfqxpxzx3wpijg6j2tlgmgsvyolyda"
+  region           = "uk-london-1"
 }
+
