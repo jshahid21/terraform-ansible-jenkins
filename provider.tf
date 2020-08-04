@@ -6,4 +6,3 @@
 #   private_key_path = "/Users/jushahid/.oci/oci_api_key.pem"
 #   region           = "uk-london-1"
 # }
-provider "oci" {}
