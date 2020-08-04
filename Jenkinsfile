@@ -13,8 +13,8 @@ pipeline {
 
     stage('TF Plan') {
       steps {
-          echo "{$TF_VAR_tenancy_ocid}"
-          echo "{$TF_VAR_private_key_path}"
+          echo $TF_VAR_tenancy_ocid
+          echo $TF_VAR_private_key_path
           sh 'terraform init'
           sh 'terraform plan'
       }
